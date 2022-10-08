@@ -14,25 +14,26 @@ logstashConfig: {}
     # key = value
 
 # Allows you to add any pipeline files in /usr/share/logstash/pipeline/
-### ***warn*** there is a hardcoded logstash.conf in the image, override it first
-logstashPipeline: 
-   logstash-apache.conf: |
-      input {
-        file {
-          path => "/app/sample.log"
-          start_position => "beginning"
-              sincedb_path => "/dev/null"
-        }
-      }
-      output { elasticsearch { hosts => [ "http://elasticsearch:9200" ] }stdout { codec => rubydebug } }
-   logstash.conf: |
-      input {
-        tcp {
-          port => 5044
-          codec => json
-        }
-      }
-      output { elasticsearch { hosts => [ "http://elasticsearch:9200" ] index => "index-log" }stdout { codec => rubydebug } }
+### ***warn*** there is a hardcoded logstash.conf in the image, override it firstlogstashPipeline: {}ˀˇ
+logstashPipeline: {}
+#logstashPipeline: 
+ #  logstash-apache.conf: |
+  #    input {
+   #     file {
+    #      path => "/app/sample.log"
+     #     start_position => "beginning"
+      #        sincedb_path => "/dev/null"
+       # }
+      #}
+      #output { elasticsearch { hosts => [ "http://elasticsearch:9200" ] }stdout { codec => rubydebug } }
+   #logstash.conf: |
+    #  input {
+     #   tcp {
+      #    port => 5044
+       #   codec => json
+        #}
+      #}
+      #output { elasticsearch { hosts => [ "http://elasticsearch:9200" ] index => "index-log" }stdout { codec => rubydebug } }
 
 # Allows you to add any pattern files in your custom pattern dir
 logstashPatternDir: "/usr/share/logstash/patterns/"
