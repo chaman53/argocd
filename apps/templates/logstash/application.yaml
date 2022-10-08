@@ -10,7 +10,7 @@ spec:
   source:
     path: apps/templates/nginx
     repoURL: >-
-      https://argo-cd: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@github.com/chaman53/argocd.git
+      https://argo-cd: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@github.com/chaman53/argocd.git
     targetRevision: HEAD
   project: default
   syncPolicy:
