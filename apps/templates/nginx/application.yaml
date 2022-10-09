@@ -1,0 +1,16 @@
+project: default
+source:
+  repoURL: >-
+    https://argo-cd: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@github.com/chaman53/argocd.git
+  path: apps/templates/nginx
+  targetRevision: HEAD
+  helm:
+    valueFiles:
+      - values.yaml
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: default
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
